@@ -13,7 +13,7 @@
 </p>
 
 <p align="center">
-  <a href="https://pixgoras.github.io/Clicks_TheGame/">
+  <a href="https://pitxgoras.github.io/Clicks_TheGame/">
     <img src="https://img.shields.io/badge/JUGAR%20AHORA-Click%20aquí-red?style=for-the-badge&logo=github">
   </a>
 </p>
@@ -23,7 +23,7 @@
 ## 📸 **CAPTURAS DEL JUEGO**
 
 <p align="center">
-  <img src="https://via.placeholder.com/800x400/1a1b2f/00fff9?text=CLICK!+Gameplay" alt="Gameplay" width="80%">
+  <img width="1919" height="986" alt="image" src="https://github.com/user-attachments/assets/85000791-9568-4651-8295-85af0356d75c" />
 </p>
 
 *(Añade aquí capturas reales de tu juego)*
@@ -83,7 +83,7 @@
 
 ### 📌 **Opción 1: Jugar online (recomendado)**
 Simplemente haz clic aquí:
-👉 **[https://pixgoras.github.io/Clicks_TheGame/](https://pixgoras.github.io/Clicks_TheGame/)**
+👉 **[https://pitxgoras.github.io/Clicks_TheGame/](https://pitxgoras.github.io/Clicks_TheGame/)**
 
 ### 📌 **Opción 2: Clonar y jugar local**
 ```bash
