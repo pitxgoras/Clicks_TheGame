@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLICK! - El Juego Definitivo de Clics</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Fondo animado -->
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+    
+    <div class="container">
+        <!-- Header con tiempo y estadísticas principales -->
+        <div class="header">
+            <div class="time-box">
+                <span class="time-icon">⏰</span>
+                <span id="currentTime">00:00:00</span>
+            </div>
+            <div class="stats-box">
+                <div class="stat">
+                    <span class="stat-icon">💰</span>
+                    <span class="stat-value" id="clickCount">0</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-icon">⚡</span>
+                    <span class="stat-value" id="cps">0</span>
+                    <span class="stat-label">Cps</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Estado del juego -->
+        <div class="game-status-container">
+            <div class="game-status neon-text" id="gameStatus">CLICK!</div>
+            <div class="status-effect"></div>
+        </div>
+
+        <!-- Área principal de clics -->
+        <div class="click-area">
+            <div class="click-button" id="clickButton">
+                <div class="button-inner">
+                    <div class="button-text">CLICK!</div>
+                    <div class="button-subtext" id="multiplierDisplay">x1</div>
+                </div>
+                <div class="button-glow"></div>
+                <div class="button-rings">
+                    <div class="ring"></div>
+                    <div class="ring"></div>
+                    <div class="ring"></div>
+                </div>
+            </div>
+            
+            <!-- Barra de progreso -->
+            <div class="progress-container">
+                <div class="progress-label">
+                    <span>Próximo logro:</span>
+                    <span id="nextAchievementName">100 clics - Centenario</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressBar"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel de logros (colapsable) -->
+        <div class="achievements-section">
+            <div class="section-header" onclick="toggleAchievements()">
+                <div class="header-left">
+                    <span class="header-icon">🏆</span>
+                    <span class="header-title">LOGROS</span>
+                </div>
+                <div class="header-right">
+                    <span class="achievement-counter" id="achievementCounter">0/43</span>
+                    <span class="toggle-icon">▼</span>
+                </div>
+            </div>
+            
+            <div class="achievements-grid" id="achievementsGrid">
+                <!-- Los logros se generarán dinámicamente con JS -->
+            </div>
+        </div>
+
+        <!-- Tienda de mejoras -->
+        <div class="shop-section">
+            <div class="section-header" onclick="toggleShop()">
+                <div class="header-left">
+                    <span class="header-icon">🛒</span>
+                    <span class="header-title">TIENDA</span>
+                </div>
+                <div class="header-right">
+                    <span class="toggle-icon">▼</span>
+                </div>
+            </div>
+            
+            <div class="shop-items" id="shopItems">
+                <!-- Auto Clicker -->
+                <div class="shop-item" onclick="purchaseItem('autoClicker')" id="autoClickerItem">
+                    <div class="item-icon">🤖</div>
+                    <div class="item-info">
+                        <div class="item-name">Auto Clicker</div>
+                        <div class="item-description">1 clic automático por segundo</div>
+                        <div class="item-level" id="autoClickerLevel">Nivel 0</div>
+                    </div>
+                    <div class="item-price-container">
+                        <span class="item-price" id="autoClickerPrice">50</span>
+                        <span class="item-currency">💰</span>
+                    </div>
+                </div>
+                
+                <!-- Multiplicador -->
+                <div class="shop-item" onclick="purchaseItem('clickMultiplier')" id="clickMultiplierItem">
+                    <div class="item-icon">⚡</div>
+                    <div class="item-info">
+                        <div class="item-name">Multiplicador</div>
+                        <div class="item-description">Duplica tus clics</div>
+                        <div class="item-level" id="multiplierLevel">x1</div>
+                    </div>
+                    <div class="item-price-container">
+                        <span class="item-price" id="clickMultiplierPrice">100</span>
+                        <span class="item-currency">💰</span>
+                    </div>
+                </div>
+                
+                <!-- Time Boost -->
+                <div class="shop-item" onclick="purchaseItem('timeBoost')" id="timeBoostItem">
+                    <div class="item-icon">⏱️</div>
+                    <div class="item-info">
+                        <div class="item-name">Time Boost</div>
+                        <div class="item-description">×3 CPS por 10 segundos</div>
+                    </div>
+                    <div class="item-price-container">
+                        <span class="item-price" id="timeBoostPrice">200</span>
+                        <span class="item-currency">💰</span>
+                    </div>
+                </div>
+                
+                <!-- Cápsula Normal -->
+                <div class="shop-item" onclick="purchaseItem('capsule')" id="capsuleItem">
+                    <div class="item-icon">💊</div>
+                    <div class="item-info">
+                        <div class="item-name">Cápsula Misteriosa</div>
+                        <div class="item-description">Premio sorpresa (50-150)</div>
+                    </div>
+                    <div class="item-price-container">
+                        <span class="item-price" id="capsulePrice">500</span>
+                        <span class="item-currency">💰</span>
+                    </div>
+                </div>
+                
+                <!-- Súper Cápsula -->
+                <div class="shop-item special" onclick="purchaseItem('superCapsule')" id="superCapsuleItem">
+                    <div class="item-icon">🌟</div>
+                    <div class="item-info">
+                        <div class="item-name">Súper Cápsula</div>
+                        <div class="item-description">¡Premio mayor! (500-1000)</div>
+                    </div>
+                    <div class="item-price-container">
+                        <span class="item-price" id="superCapsulePrice">1000</span>
+                        <span class="item-currency">💎</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel de estadísticas y controles -->
+        <div class="controls-panel">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-icon">🤖</span>
+                    <div class="stat-info">
+                        <span class="stat-label">Auto Clickers</span>
+                        <span class="stat-value" id="autoClickerCount">0</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-icon">⚡</span>
+                    <div class="stat-info">
+                        <span class="stat-label">Multiplicador</span>
+                        <span class="stat-value" id="multiplierCount">1x</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-icon">📊</span>
+                    <div class="stat-info">
+                        <span class="stat-label">Total Clics</span>
+                        <span class="stat-value" id="totalClicks">0</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-icon">🏆</span>
+                    <div class="stat-info">
+                        <span class="stat-label">Récord</span>
+                        <span class="stat-value" id="highScore">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="control-buttons">
+                <button class="control-btn save" onclick="saveGame()">
+                    <span class="btn-icon">💾</span>
+                    <span>Guardar</span>
+                </button>
+                <button class="control-btn load" onclick="loadGame()">
+                    <span class="btn-icon">📂</span>
+                    <span>Cargar</span>
+                </button>
+                <button class="control-btn reset" onclick="resetGame()">
+                    <span class="btn-icon">🔄</span>
+                    <span>Reiniciar</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <span>🎮 CLICK! v3.0</span>
+            <span class="separator">•</span>
+            <span>⏱️ Tiempo: <span id="playTime">0h 0m</span></span>
+            <span class="separator">•</span>
+            <span>💫 ¡Sigue cliqueando!</span>
+        </div>
+    </div>
+
+    <!-- Área de notificaciones -->
+    <div class="notification-area" id="notificationArea"></div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
