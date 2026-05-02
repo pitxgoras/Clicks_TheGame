@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![Version](https://img.shields.io/badge/version-4.0-blue?style=for-the-badge)
+![Version](https://img.shields.io/badge/version-2.7-blue?style=for-the-badge)
 ![JavaScript](https://img.shields.io/badge/JavaScript-61%25-yellow?style=for-the-badge)
 ![CSS](https://img.shields.io/badge/CSS-24%25-purple?style=for-the-badge)
 ![HTML](https://img.shields.io/badge/HTML-15%25-orange?style=for-the-badge)
