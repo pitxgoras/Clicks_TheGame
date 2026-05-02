@@ -1,295 +1,4 @@
 // ============================================
-// CONFIGURACIÓN DE LOGROS
-// ============================================
-const ACHIEVEMENTS = {
-    // Logros por clics (1-1000)
-    CLICK_1: {
-        id: 'CLICK_1',
-        name: '¡Primer Paso!',
-        description: 'Haz tu primer clic',
-        icon: '👣',
-        requirement: 1,
-        reward: 10,
-        rarity: 'common'
-    },
-    CLICK_10: {
-        id: 'CLICK_10',
-        name: 'Aprendiz de Clics',
-        description: 'Alcanza 10 clics totales',
-        icon: '👆',
-        requirement: 10,
-        reward: 20,
-        rarity: 'common'
-    },
-    CLICK_50: {
-        id: 'CLICK_50',
-        name: 'Dedo Ágil',
-        description: 'Alcanza 50 clics totales',
-        icon: '🖱️',
-        requirement: 50,
-        reward: 30,
-        rarity: 'common'
-    },
-    CLICK_100: {
-        id: 'CLICK_100',
-        name: 'Centenario',
-        description: 'Alcanza 100 clics totales',
-        icon: '💯',
-        requirement: 100,
-        reward: 50,
-        rarity: 'uncommon'
-    },
-    CLICK_200: {
-        id: 'CLICK_200',
-        name: 'Doble Centuria',
-        description: 'Alcanza 200 clics totales',
-        icon: '2️⃣0️⃣0️⃣',
-        requirement: 200,
-        reward: 75,
-        rarity: 'uncommon'
-    },
-    CLICK_300: {
-        id: 'CLICK_300',
-        name: 'Tricentenario',
-        description: 'Alcanza 300 clics totales',
-        icon: '3️⃣0️⃣0️⃣',
-        requirement: 300,
-        reward: 100,
-        rarity: 'uncommon'
-    },
-    CLICK_400: {
-        id: 'CLICK_400',
-        name: 'Cuadrigentésimo',
-        description: 'Alcanza 400 clics totales',
-        icon: '4️⃣0️⃣0️⃣',
-        requirement: 400,
-        reward: 125,
-        rarity: 'uncommon'
-    },
-    CLICK_500: {
-        id: 'CLICK_500',
-        name: 'Quinientos',
-        description: 'Alcanza 500 clics totales',
-        icon: '5️⃣0️⃣0️⃣',
-        requirement: 500,
-        reward: 150,
-        rarity: 'rare'
-    },
-    CLICK_600: {
-        id: 'CLICK_600',
-        name: 'Sescentenario',
-        description: 'Alcanza 600 clics totales',
-        icon: '6️⃣0️⃣0️⃣',
-        requirement: 600,
-        reward: 175,
-        rarity: 'rare'
-    },
-    CLICK_700: {
-        id: 'CLICK_700',
-        name: 'Septingentésimo',
-        description: 'Alcanza 700 clics totales',
-        icon: '7️⃣0️⃣0️⃣',
-        requirement: 700,
-        reward: 200,
-        rarity: 'rare'
-    },
-    CLICK_800: {
-        id: 'CLICK_800',
-        name: 'Octingentésimo',
-        description: 'Alcanza 800 clics totales',
-        icon: '8️⃣0️⃣0️⃣',
-        requirement: 800,
-        reward: 225,
-        rarity: 'rare'
-    },
-    CLICK_900: {
-        id: 'CLICK_900',
-        name: 'Noningentésimo',
-        description: 'Alcanza 900 clics totales',
-        icon: '9️⃣0️⃣0️⃣',
-        requirement: 900,
-        reward: 250,
-        rarity: 'epic'
-    },
-    CLICK_1000: {
-        id: 'CLICK_1000',
-        name: '¡LEYENDA!',
-        description: 'Alcanza 1000 clics totales',
-        icon: '👑',
-        requirement: 1000,
-        reward: 500,
-        rarity: 'legendary'
-    },
-
-    // Logros por CPS
-    CPS_5: {
-        id: 'CPS_5',
-        name: 'Rápidos y Furiosos',
-        description: 'Alcanza 5 CPS',
-        icon: '⚡',
-        requirement: 5,
-        reward: 100,
-        rarity: 'rare'
-    },
-    CPS_10: {
-        id: 'CPS_10',
-        name: 'Velocidad Relámpago',
-        description: 'Alcanza 10 CPS',
-        icon: '⚡⚡',
-        requirement: 10,
-        reward: 250,
-        rarity: 'epic'
-    },
-    CPS_20: {
-        id: 'CPS_20',
-        name: 'Dios del Clic',
-        description: 'Alcanza 20 CPS',
-        icon: '⚡⚡⚡',
-        requirement: 20,
-        reward: 500,
-        rarity: 'legendary'
-    },
-
-    // Logros por compras
-    SHOP_1: {
-        id: 'SHOP_1',
-        name: 'Primera Compra',
-        description: 'Compra tu primer item',
-        icon: '🛒',
-        requirement: 1,
-        reward: 50,
-        rarity: 'common'
-    },
-    SHOP_5: {
-        id: 'SHOP_5',
-        name: 'Adicto a las Compras',
-        description: 'Compra 5 items',
-        icon: '🛍️',
-        requirement: 5,
-        reward: 150,
-        rarity: 'uncommon'
-    },
-    SHOP_10: {
-        id: 'SHOP_10',
-        name: 'Magnate',
-        description: 'Compra 10 items',
-        icon: '💼',
-        requirement: 10,
-        reward: 300,
-        rarity: 'rare'
-    },
-
-    // Logros por Auto Clickers
-    AUTO_1: {
-        id: 'AUTO_1',
-        name: 'Primer Auto Clicker',
-        description: 'Compra tu primer Auto Clicker',
-        icon: '🤖',
-        requirement: 1,
-        reward: 100,
-        rarity: 'common'
-    },
-    AUTO_5: {
-        id: 'AUTO_5',
-        name: 'Ejército de Robots',
-        description: 'Ten 5 Auto Clickers',
-        icon: '🤖🤖',
-        requirement: 5,
-        reward: 250,
-        rarity: 'rare'
-    },
-    AUTO_10: {
-        id: 'AUTO_10',
-        name: 'Revolución de las Máquinas',
-        description: 'Ten 10 Auto Clickers',
-        icon: '🤖🤖🤖',
-        requirement: 10,
-        reward: 500,
-        rarity: 'epic'
-    },
-
-    // Logros por multiplicador
-    MULTI_2: {
-        id: 'MULTI_2',
-        name: 'Doble Poder',
-        description: 'Multiplicador x2',
-        icon: '2️⃣',
-        requirement: 2,
-        reward: 100,
-        rarity: 'common'
-    },
-    MULTI_4: {
-        id: 'MULTI_4',
-        name: 'Cuádruple',
-        description: 'Multiplicador x4',
-        icon: '4️⃣',
-        requirement: 4,
-        reward: 200,
-        rarity: 'uncommon'
-    },
-    MULTI_8: {
-        id: 'MULTI_8',
-        name: 'Octuple Poder',
-        description: 'Multiplicador x8',
-        icon: '8️⃣',
-        requirement: 8,
-        reward: 400,
-        rarity: 'rare'
-    },
-    MULTI_16: {
-        id: 'MULTI_16',
-        name: 'Poder Ilimitado',
-        description: 'Multiplicador x16',
-        icon: '🔟6️⃣',
-        requirement: 16,
-        reward: 800,
-        rarity: 'legendary'
-    },
-
-    // Logros de tiempo
-    TIME_1H: {
-        id: 'TIME_1H',
-        name: 'Maratoniano',
-        description: 'Juega por 1 hora',
-        icon: '⏰',
-        requirement: 3600,
-        reward: 300,
-        rarity: 'epic'
-    },
-    TIME_24H: {
-        id: 'TIME_24H',
-        name: 'Adicto',
-        description: 'Juega por 24 horas',
-        icon: '💊',
-        requirement: 86400,
-        reward: 1000,
-        rarity: 'legendary'
-    },
-
-    // Logros secretos
-    SECRET_1: {
-        id: 'SECRET_1',
-        name: '¿Eres un Robot?',
-        description: 'Alcanza 100 CPS',
-        icon: '🤖',
-        requirement: 100,
-        reward: 1000,
-        rarity: 'mythic',
-        secret: true
-    },
-    SECRET_2: {
-        id: 'SECRET_2',
-        name: 'Dios del Dinero',
-        description: 'Acumula 1,000,000 de clics',
-        icon: '💰💰',
-        requirement: 1000000,
-        reward: 5000,
-        rarity: 'mythic',
-        secret: true
-    }
-};
-
-// ============================================
 // VARIABLES GLOBALES
 // ============================================
 let gameState = {
@@ -300,8 +9,7 @@ let gameState = {
     cps: 0,
     highScore: 0,
     totalPurchases: 0,
-    playTime: 0,
-    unlockedAchievements: []
+    playTime: 0
 };
 
 let shopPrices = {
@@ -317,62 +25,67 @@ let itemCounts = {
     multiplier: 1
 };
 
+// Sistema de prestigio
+let prestigeData = {
+    level: 0,
+    points: 0,
+    bonus: 1
+};
+
+// Eventos especiales
+let activeEvent = null;
+let eventEndTime = null;
+
+// Misiones diarias
+let dailyMissions = [];
+let lastMissionReset = null;
+
+// Historial de clics
 let clickHistory = [];
 let boostActive = false;
 let boostEndTime = null;
 
 // Elementos del DOM
-const elements = {
-    clickCount: document.getElementById('clickCount'),
-    cps: document.getElementById('cps'),
-    gameStatus: document.getElementById('gameStatus'),
-    clickButton: document.getElementById('clickButton'),
-    currentTime: document.getElementById('currentTime'),
-    progressBar: document.getElementById('progressBar'),
-    nextAchievementName: document.getElementById('nextAchievementName'),
-    achievementCounter: document.getElementById('achievementCounter'),
-    achievementsGrid: document.getElementById('achievementsGrid'),
-    autoClickerCount: document.getElementById('autoClickerCount'),
-    multiplierCount: document.getElementById('multiplierCount'),
-    multiplierDisplay: document.getElementById('multiplierDisplay'),
-    totalClicks: document.getElementById('totalClicks'),
-    highScore: document.getElementById('highScore'),
-    playTime: document.getElementById('playTime'),
-    notificationArea: document.getElementById('notificationArea'),
-    autoClickerLevel: document.getElementById('autoClickerLevel'),
-    multiplierLevel: document.getElementById('multiplierLevel'),
-    autoClickerPrice: document.getElementById('autoClickerPrice'),
-    clickMultiplierPrice: document.getElementById('clickMultiplierPrice'),
-    timeBoostPrice: document.getElementById('timeBoostPrice'),
-    capsulePrice: document.getElementById('capsulePrice'),
-    superCapsulePrice: document.getElementById('superCapsulePrice')
-};
+const elements = {};
 
 // ============================================
 // INICIALIZACIÓN
 // ============================================
 document.addEventListener('DOMContentLoaded', () => {
     loadGame();
+    initElements();
     updateTime();
-    renderAchievements();
+    generateDailyMissions();
+    startEventTimer();
     setupEventListeners();
     
-    // Iniciar loops
     setInterval(updateTime, 1000);
     setInterval(autoClick, 1000);
     setInterval(updateCPS, 100);
     setInterval(updatePlayTime, 1000);
-    setInterval(checkAchievements, 100);
-    
-    // Verificar logros iniciales
-    setTimeout(() => {
-        checkAchievements();
-    }, 500);
+    setInterval(checkEvent, 1000);
 });
 
-// ============================================
-// EVENT LISTENERS
-// ============================================
+function initElements() {
+    elements.clickCount = document.getElementById('clickCount');
+    elements.cps = document.getElementById('cps');
+    elements.gameStatus = document.getElementById('gameStatus');
+    elements.clickButton = document.getElementById('clickButton');
+    elements.currentTime = document.getElementById('currentTime');
+    elements.progressBar = document.getElementById('progressBar');
+    elements.nextAchievementName = document.getElementById('nextAchievementName');
+    elements.autoClickerCount = document.getElementById('autoClickerCount');
+    elements.multiplierCount = document.getElementById('multiplierCount');
+    elements.multiplierDisplay = document.getElementById('multiplierDisplay');
+    elements.totalClicks = document.getElementById('totalClicks');
+    elements.highScore = document.getElementById('highScore');
+    elements.playTime = document.getElementById('playTime');
+    elements.notificationArea = document.getElementById('notificationArea');
+    elements.prestigeLevel = document.getElementById('prestigeLevel');
+    elements.prestigePoints = document.getElementById('prestigePoints');
+    elements.prestigeBonus = document.getElementById('prestigeBonus');
+}
+
 function setupEventListeners() {
     elements.clickButton.addEventListener('click', handleClick);
     
@@ -382,21 +95,22 @@ function setupEventListeners() {
             simulateClick();
         }
     });
-    
-    elements.clickButton.addEventListener('mouseenter', () => {
-        elements.gameStatus.textContent = '¡CLIQUEA!';
-    });
-    
-    elements.clickButton.addEventListener('mouseleave', () => {
-        elements.gameStatus.textContent = 'CLICK!';
-    });
 }
 
 // ============================================
 // FUNCIONES PRINCIPALES
 // ============================================
 function handleClick(event) {
-    const clicksGained = gameState.clickMultiplier;
+    let clicksGained = gameState.clickMultiplier;
+    
+    // Aplicar bonus de prestigio
+    clicksGained = Math.floor(clicksGained * prestigeData.bonus);
+    
+    // Aplicar bonus de evento
+    if (activeEvent === 'doubleClick') {
+        clicksGained *= 2;
+    }
+    
     gameState.clickCount += clicksGained;
     gameState.totalClicks += clicksGained;
     
@@ -409,8 +123,8 @@ function handleClick(event) {
     createClickEffect(event, clicksGained);
     animateButton();
     updateProgressBar();
-    checkAchievements();
     updateUI();
+    saveGame();
 }
 
 function simulateClick() {
@@ -435,7 +149,7 @@ function createClickEffect(event, clicks) {
 }
 
 function animateButton() {
-    elements.clickButton.style.transform = 'scale(0.9)';
+    elements.clickButton.style.transform = 'scale(0.95)';
     setTimeout(() => {
         elements.clickButton.style.transform = 'scale(1)';
     }, 100);
@@ -447,171 +161,358 @@ function animateButton() {
 }
 
 // ============================================
-// SISTEMA DE LOGROS
+// SISTEMA DE PRESTIGIO
 // ============================================
-function renderAchievements() {
-    if (!elements.achievementsGrid) return;
+function prestige() {
+    const requiredClicks = 10000;
     
-    elements.achievementsGrid.innerHTML = '';
-    
-    Object.values(ACHIEVEMENTS).forEach(ach => {
-        const isUnlocked = gameState.unlockedAchievements.includes(ach.id);
-        const rarityColor = getRarityColor(ach.rarity);
+    if (gameState.totalClicks >= requiredClicks) {
+        if (confirm(`¿PRESTIGIAR?\n\nPerderás:\n- ${Math.floor(gameState.clickCount)} clics actuales\n- ${gameState.autoClickers} Auto Clickers\n- Multiplicador x${gameState.clickMultiplier}\n\nGanarás:\n- +1 Nivel de Prestigio\n- +1 Punto de Leyenda\n- Bonus permanente x${(prestigeData.bonus + 0.1).toFixed(1)}\n\n¿Continuar?`)) {
+            
+            // Calcular puntos ganados
+            const pointsGained = 1;
+            prestigeData.points += pointsGained;
+            prestigeData.level++;
+            prestigeData.bonus = 1 + (prestigeData.points * 0.1);
+            
+            // Reiniciar juego
+            gameState.clickCount = 0;
+            gameState.clickMultiplier = 1;
+            gameState.autoClickers = 0;
+            itemCounts.autoClicker = 0;
+            itemCounts.multiplier = 1;
+            
+            // Resetear precios de tienda
+            shopPrices = {
+                autoClicker: 50,
+                clickMultiplier: 100,
+                timeBoost: 200,
+                capsule: 500,
+                superCapsule: 1000
+            };
+            
+            updateUI();
+            updatePrestigeUI();
+            showNotification(`🌟 ¡PRESTIGIO! Nivel ${prestigeData.level} | Bonus x${prestigeData.bonus.toFixed(1)}`);
+            saveGame();
+        }
+    } else {
+        showNotification(`❌ Necesitas 10,000 clics totales para prestigiar (tienes ${gameState.totalClicks})`, 'error');
+    }
+}
+
+function updatePrestigeUI() {
+    if (elements.prestigeLevel) elements.prestigeLevel.textContent = prestigeData.level;
+    if (elements.prestigePoints) elements.prestigePoints.textContent = prestigeData.points;
+    if (elements.prestigeBonus) elements.prestigeBonus.textContent = `x${prestigeData.bonus.toFixed(1)}`;
+}
+
+// ============================================
+// MINIJUEGOS
+// ============================================
+function toggleMinigames() {
+    const grid = document.getElementById('minigamesGrid');
+    const toggle = document.getElementById('minigameToggle');
+    if (grid && toggle) {
+        grid.classList.toggle('show');
+        toggle.classList.toggle('rotated');
+    }
+}
+
+function playRoulette() {
+    const cost = 100;
+    if (gameState.clickCount >= cost) {
+        gameState.clickCount -= cost;
         
-        const item = document.createElement('div');
-        item.className = `achievement-item ${isUnlocked ? 'unlocked' : 'locked'}`;
-        item.style.borderColor = rarityColor;
+        const number = Math.floor(Math.random() * 37);
+        let prize = 0;
+        let message = '';
         
-        if (ach.secret && !isUnlocked) {
-            item.innerHTML = `
-                <div class="achievement-icon" style="background: ${rarityColor}20">
-                    ❓
-                </div>
-                <div class="achievement-details">
-                    <div class="achievement-secret">???</div>
-                    <div class="achievement-requirement">Secreto</div>
-                </div>
-            `;
+        if (number === 0) {
+            prize = cost * 35;
+            message = `🎡 ¡RULETA! Cayó ${number} - ¡JACKPOT! +${prize} clics`;
+        } else if (number % 2 === 0) {
+            prize = cost * 2;
+            message = `🎡 ¡RULETA! Cayó ${number} (par) - Ganaste ${prize} clics`;
         } else {
-            item.innerHTML = `
-                <div class="achievement-icon" style="background: ${rarityColor}20">
-                    ${ach.icon}
-                </div>
-                <div class="achievement-details">
-                    <div class="achievement-name">${ach.name}</div>
-                    <div class="achievement-desc">${ach.description}</div>
-                    ${isUnlocked ? 
-                        `<div class="achievement-reward">+${ach.reward} clics</div>` : 
-                        `<div class="achievement-requirement">Requisito: ${formatNumber(ach.requirement)}</div>`
-                    }
-                </div>
-            `;
+            prize = Math.floor(cost / 2);
+            message = `🎡 ¡RULETA! Cayó ${number} (impar) - Perdiste, recuperas ${prize} clics`;
         }
         
-        elements.achievementsGrid.appendChild(item);
-    });
-    
-    updateAchievementCounter();
-}
-
-function getRarityColor(rarity) {
-    const colors = {
-        common: '#808080',
-        uncommon: '#00ff00',
-        rare: '#0000ff',
-        epic: '#800080',
-        legendary: '#ffd700',
-        mythic: '#ff00ff'
-    };
-    return colors[rarity] || '#ffffff';
-}
-
-function checkAchievements() {
-    let newUnlocks = [];
-    
-    Object.values(ACHIEVEMENTS).forEach(ach => {
-        if (gameState.unlockedAchievements.includes(ach.id)) return;
-        
-        let unlocked = false;
-        
-        if (ach.id.startsWith('CLICK_')) {
-            unlocked = gameState.totalClicks >= ach.requirement;
-        } else if (ach.id.startsWith('CPS_')) {
-            unlocked = gameState.cps >= ach.requirement;
-        } else if (ach.id.startsWith('SHOP_')) {
-            unlocked = gameState.totalPurchases >= ach.requirement;
-        } else if (ach.id.startsWith('AUTO_')) {
-            unlocked = gameState.autoClickers >= ach.requirement;
-        } else if (ach.id.startsWith('MULTI_')) {
-            unlocked = gameState.clickMultiplier >= ach.requirement;
-        } else if (ach.id.startsWith('TIME_')) {
-            unlocked = gameState.playTime >= ach.requirement;
-        } else if (ach.id.startsWith('SECRET_')) {
-            unlocked = checkSecretAchievement(ach.id);
-        }
-        
-        if (unlocked) {
-            gameState.unlockedAchievements.push(ach.id);
-            gameState.clickCount += ach.reward;
-            newUnlocks.push(ach);
-        }
-    });
-    
-    if (newUnlocks.length > 0) {
-        renderAchievements();
-        newUnlocks.forEach(ach => showAchievementPopup(ach));
+        gameState.clickCount += prize;
+        showNotification(message);
         updateUI();
         saveGame();
+    } else {
+        showNotification(`❌ Necesitas ${cost} clics para jugar`, 'error');
     }
 }
 
-function checkSecretAchievement(id) {
-    switch(id) {
-        case 'SECRET_1':
-            return gameState.cps >= 100;
-        case 'SECRET_2':
-            return gameState.totalClicks >= 1000000;
-        default:
-            return false;
+function playSlotMachine() {
+    const cost = 50;
+    if (gameState.clickCount >= cost) {
+        gameState.clickCount -= cost;
+        
+        const symbols = ['🍒', '🍋', '🍊', '🍉', '⭐', '💎', '7️⃣'];
+        const reels = [
+            symbols[Math.floor(Math.random() * symbols.length)],
+            symbols[Math.floor(Math.random() * symbols.length)],
+            symbols[Math.floor(Math.random() * symbols.length)]
+        ];
+        
+        let prize = 0;
+        let message = '';
+        
+        if (reels[0] === reels[1] && reels[1] === reels[2]) {
+            const multiplier = reels[0] === '7️⃣' ? 50 : (reels[0] === '💎' ? 25 : 10);
+            prize = cost * multiplier;
+            message = `🎰 ¡TRAGAMONEDAS! ${reels.join(' ')} - ¡JACKPOT! +${prize} clics`;
+        } else if (reels[0] === reels[1] || reels[1] === reels[2] || reels[0] === reels[2]) {
+            prize = cost * 2;
+            message = `🎰 ¡TRAGAMONEDAS! ${reels.join(' ')} - Ganaste ${prize} clics`;
+        } else {
+            prize = 0;
+            message = `🎰 ¡TRAGAMONEDAS! ${reels.join(' ')} - Perdiste`;
+        }
+        
+        gameState.clickCount += prize;
+        showNotification(message, prize === 0 ? 'error' : 'success');
+        updateUI();
+        saveGame();
+    } else {
+        showNotification(`❌ Necesitas ${cost} clics para jugar`, 'error');
     }
 }
 
-function showAchievementPopup(achievement) {
-    const popup = document.createElement('div');
-    popup.className = 'achievement-popup';
-    popup.style.borderColor = getRarityColor(achievement.rarity);
-    popup.innerHTML = `
-        <div class="popup-icon" style="background: ${getRarityColor(achievement.rarity)}20">
-            ${achievement.icon}
+function playNumberGuess() {
+    const cost = 25;
+    if (gameState.clickCount >= cost) {
+        gameState.clickCount -= cost;
+        
+        const secretNumber = Math.floor(Math.random() * 10) + 1;
+        const guess = prompt("Adivina el número (1-10):", "5");
+        
+        if (guess && !isNaN(guess)) {
+            const guessNum = parseInt(guess);
+            if (guessNum === secretNumber) {
+                const prize = cost * 5;
+                gameState.clickCount += prize;
+                showNotification(`🔢 ¡ACERTASTE! Era ${secretNumber} +${prize} clics`);
+            } else {
+                showNotification(`🔢 ¡Fallaste! Era ${secretNumber}, era ${guessNum}`, 'error');
+            }
+        } else {
+            gameState.clickCount += cost;
+            showNotification(`🔢 Juego cancelado, clics devueltos`);
+        }
+        
+        updateUI();
+        saveGame();
+    } else {
+        showNotification(`❌ Necesitas ${cost} clics para jugar`, 'error');
+    }
+}
+
+// ============================================
+// MISIONES DIARIAS
+// ============================================
+function toggleMissions() {
+    const grid = document.getElementById('missionsGrid');
+    const toggle = document.getElementById('missionToggle');
+    if (grid && toggle) {
+        grid.classList.toggle('show');
+        toggle.classList.toggle('rotated');
+    }
+}
+
+function generateDailyMissions() {
+    const missionsList = [
+        { name: "Click Master", requirement: 100, reward: 500, current: 0, type: 'clicks' },
+        { name: "Auto Clicker Fan", requirement: 5, reward: 1000, current: 0, type: 'autoClicks' },
+        { name: "Big Spender", requirement: 500, reward: 750, current: 0, type: 'spend' },
+        { name: "CPS Warrior", requirement: 10, reward: 1500, current: 0, type: 'cps' },
+        { name: "Combo Breaker", requirement: 50, reward: 800, current: 0, type: 'clicks' },
+        { name: "Lucky Player", requirement: 3, reward: 1200, current: 0, type: 'minigames' }
+    ];
+    
+    // Tomar 3 misiones aleatorias
+    dailyMissions = [];
+    const shuffled = [...missionsList];
+    for (let i = 0; i < 3 && shuffled.length > 0; i++) {
+        const randomIndex = Math.floor(Math.random() * shuffled.length);
+        dailyMissions.push({...shuffled[randomIndex], current: 0});
+        shuffled.splice(randomIndex, 1);
+    }
+    
+    renderMissions();
+}
+
+function renderMissions() {
+    const grid = document.getElementById('missionsGrid');
+    if (!grid) return;
+    
+    grid.innerHTML = dailyMissions.map(mission => `
+        <div class="mission-card">
+            <div class="mission-name">${mission.name}</div>
+            <div class="mission-progress">${mission.current}/${mission.requirement}</div>
+            <div class="mission-reward">💰 ${mission.reward}</div>
+            <div class="progress-bar" style="margin-top: 5px;">
+                <div class="progress-fill" style="width: ${(mission.current / mission.requirement) * 100}%; height: 4px;"></div>
+            </div>
         </div>
-        <div class="popup-info">
-            <div class="popup-name">${achievement.name}</div>
-            <div class="popup-desc">${achievement.description}</div>
-            <div class="popup-reward">+${achievement.reward} clics</div>
-        </div>
-    `;
-    document.body.appendChild(popup);
+    `).join('');
+}
+
+function updateMissionProgress(type, amount) {
+    dailyMissions.forEach(mission => {
+        if (mission.type === type && mission.current < mission.requirement) {
+            mission.current = Math.min(mission.current + amount, mission.requirement);
+            if (mission.current >= mission.requirement) {
+                gameState.clickCount += mission.reward;
+                showNotification(`📋 ¡Misión completada: ${mission.name}! +${mission.reward} clics`);
+                saveGame();
+            }
+        }
+    });
+    renderMissions();
+}
+
+// ============================================
+// EVENTOS ESPECIALES
+// ============================================
+function startEventTimer() {
+    // Verificar si hay evento activo al cargar
+    const savedEvent = localStorage.getItem('activeEvent');
+    const savedEventTime = localStorage.getItem('eventEndTime');
+    
+    if (savedEvent && savedEventTime && Date.now() < parseInt(savedEventTime)) {
+        activeEvent = savedEvent;
+        eventEndTime = parseInt(savedEventTime);
+        showEventBanner();
+    } else {
+        scheduleRandomEvent();
+    }
+}
+
+function scheduleRandomEvent() {
+    const eventDuration = 300000; // 5 minutos
+    const timeUntilEvent = Math.random() * 600000 + 300000; // 5-15 minutos
     
     setTimeout(() => {
-        popup.remove();
-    }, 5000);
+        activateRandomEvent();
+        scheduleRandomEvent();
+    }, timeUntilEvent);
 }
 
-function updateAchievementCounter() {
-    if (elements.achievementCounter) {
-        elements.achievementCounter.textContent = 
-            `${gameState.unlockedAchievements.length}/${Object.keys(ACHIEVEMENTS).length}`;
-    }
-}
-
-function updateProgressBar() {
-    const nextMilestone = findNextAchievementMilestone();
-    if (nextMilestone) {
-        const progress = (gameState.totalClicks / nextMilestone.requirement) * 100;
-        elements.progressBar.style.width = Math.min(progress, 100) + '%';
-        
-        if (elements.nextAchievementName) {
-            elements.nextAchievementName.textContent = 
-                `${nextMilestone.name} (${formatNumber(nextMilestone.requirement)} clics)`;
-        }
-    }
-}
-
-function findNextAchievementMilestone() {
-    const clickAchievements = Object.values(ACHIEVEMENTS)
-        .filter(ach => ach.id.startsWith('CLICK_'))
-        .sort((a, b) => a.requirement - b.requirement);
+function activateRandomEvent() {
+    const events = ['doubleClick', 'rainClicks', 'discount'];
+    const eventNames = {
+        doubleClick: '✨ ¡EVENTO: DOBLE CLIC! ✨ (x2 por 5 min)',
+        rainClicks: '🌧️ ¡EVENTO: LLUVIA DE CLICS! 🌧️ (+5 CPS por 5 min)',
+        discount: '🏷️ ¡EVENTO: DESCUENTO! 🏷️ (50% off en tienda por 5 min)'
+    };
     
-    return clickAchievements.find(ach => 
-        !gameState.unlockedAchievements.includes(ach.id)
-    );
+    activeEvent = events[Math.floor(Math.random() * events.length)];
+    eventEndTime = Date.now() + 300000; // 5 minutos
+    
+    localStorage.setItem('activeEvent', activeEvent);
+    localStorage.setItem('eventEndTime', eventEndTime);
+    
+    showEventBanner();
+    showNotification(eventNames[activeEvent]);
+}
+
+function checkEvent() {
+    if (activeEvent && eventEndTime && Date.now() > eventEndTime) {
+        activeEvent = null;
+        eventEndTime = null;
+        localStorage.removeItem('activeEvent');
+        localStorage.removeItem('eventEndTime');
+        hideEventBanner();
+        showNotification('⏰ El evento especial ha terminado');
+    }
+}
+
+function showEventBanner() {
+    const banner = document.getElementById('eventBanner');
+    const eventText = document.getElementById('eventText');
+    if (banner && eventText) {
+        const eventNames = {
+            doubleClick: '✨ ¡DOBLE CLIC ACTIVADO! ✨ x2 en cada clic',
+            rainClicks: '🌧️ ¡LLUVIA DE CLICS! 🌧️ +5 CPS automáticos',
+            discount: '🏷️ ¡DESCUENTO ACTIVADO! 🏷️ 50% OFF en tienda'
+        };
+        eventText.textContent = eventNames[activeEvent] || '✨ ¡EVENTO ACTIVO! ✨';
+        banner.style.display = 'block';
+    }
+}
+
+function hideEventBanner() {
+    const banner = document.getElementById('eventBanner');
+    if (banner) {
+        banner.style.display = 'none';
+    }
+}
+
+function getEventDiscount() {
+    return activeEvent === 'discount' ? 0.5 : 1;
 }
 
 // ============================================
-// SISTEMA DE COMPRAS
+// AUTO CLICKER Y CPS
 // ============================================
+function autoClick() {
+    let clicksToAdd = gameState.autoClickers;
+    
+    if (activeEvent === 'rainClicks') {
+        clicksToAdd += 5;
+    }
+    
+    if (boostActive) {
+        clicksToAdd *= 3;
+    }
+    
+    if (clicksToAdd > 0) {
+        clicksToAdd = Math.floor(clicksToAdd * prestigeData.bonus);
+        gameState.clickCount += clicksToAdd;
+        gameState.totalClicks += clicksToAdd;
+        
+        for (let i = 0; i < clicksToAdd; i++) {
+            clickHistory.push(Date.now());
+        }
+        
+        updateUI();
+    }
+}
+
+function updateCPS() {
+    const now = Date.now();
+    clickHistory = clickHistory.filter(time => now - time < 1000);
+    gameState.cps = clickHistory.length;
+    
+    if (boostActive) {
+        elements.cps.innerHTML = `${gameState.cps * 3} <span style="color: gold;">(BOOST)</span>`;
+    } else {
+        elements.cps.textContent = gameState.cps;
+    }
+}
+
+// ============================================
+// TIENDA Y COMPRAS
+// ============================================
+function toggleShop() {
+    const items = document.getElementById('shopItems');
+    const toggle = document.getElementById('shopToggle');
+    if (items && toggle) {
+        items.classList.toggle('show');
+        toggle.classList.toggle('rotated');
+    }
+}
+
 function purchaseItem(itemType) {
-    const price = shopPrices[itemType];
+    let price = shopPrices[itemType];
+    const discount = getEventDiscount();
+    price = Math.floor(price * discount);
     
     if (gameState.clickCount >= price) {
         gameState.clickCount -= price;
@@ -623,6 +524,7 @@ function purchaseItem(itemType) {
                 itemCounts.autoClicker++;
                 shopPrices.autoClicker = Math.floor(shopPrices.autoClicker * 1.5);
                 showNotification('🤖 ¡Auto Clicker comprado!');
+                updateMissionProgress('autoClicks', 1);
                 break;
                 
             case 'clickMultiplier':
@@ -649,11 +551,11 @@ function purchaseItem(itemType) {
                 break;
         }
         
-        checkAchievements();
+        updateMissionProgress('spend', price);
         updateUI();
         saveGame();
     } else {
-        showNotification('❌ ¡No tienes suficientes clics!', 'error');
+        showNotification(`❌ Necesitas ${price} clics`, 'error');
     }
 }
 
@@ -662,12 +564,10 @@ function activateTimeBoost() {
     boostEndTime = Date.now() + 10000;
     
     elements.gameStatus.textContent = '⚡ TIME BOOST ⚡';
-    elements.gameStatus.style.color = '#ffd700';
     
     setTimeout(() => {
         boostActive = false;
         elements.gameStatus.textContent = 'CLICK!';
-        elements.gameStatus.style.color = '';
         showNotification('⏰ Time Boost finalizado');
     }, 10000);
 }
@@ -698,8 +598,8 @@ function createConfetti() {
         const confetti = document.createElement('div');
         confetti.style.position = 'fixed';
         confetti.style.left = Math.random() * 100 + 'vw';
-        confetti.style.width = '10px';
-        confetti.style.height = '10px';
+        confetti.style.width = '8px';
+        confetti.style.height = '8px';
         confetti.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
         confetti.style.borderRadius = '50%';
         confetti.style.top = '-10px';
@@ -716,59 +616,6 @@ function createConfetti() {
 }
 
 // ============================================
-// AUTO CLICKER Y CPS
-// ============================================
-function autoClick() {
-    if (gameState.autoClickers > 0) {
-        let clicksToAdd = gameState.autoClickers;
-        
-        if (boostActive) {
-            clicksToAdd *= 3;
-        }
-        
-        gameState.clickCount += clicksToAdd;
-        gameState.totalClicks += clicksToAdd;
-        
-        for (let i = 0; i < clicksToAdd; i++) {
-            clickHistory.push(Date.now());
-        }
-        
-        updateUI();
-    }
-}
-
-function updateCPS() {
-    const now = Date.now();
-    clickHistory = clickHistory.filter(time => now - time < 1000);
-    gameState.cps = clickHistory.length;
-    
-    if (boostActive) {
-        elements.cps.innerHTML = `${gameState.cps * 3} <span style="color: gold; font-size: 0.8rem;">(BOOST)</span>`;
-    } else {
-        elements.cps.textContent = gameState.cps;
-    }
-}
-
-// ============================================
-// TIEMPO DE JUEGO
-// ============================================
-function updatePlayTime() {
-    gameState.playTime++;
-    updatePlayTimeDisplay();
-}
-
-function updatePlayTimeDisplay() {
-    const hours = Math.floor(gameState.playTime / 3600);
-    const minutes = Math.floor((gameState.playTime % 3600) / 60);
-    elements.playTime.textContent = `${hours}h ${minutes}m`;
-}
-
-function updateTime() {
-    const now = new Date();
-    elements.currentTime.textContent = now.toLocaleTimeString();
-}
-
-// ============================================
 // ACTUALIZAR UI
 // ============================================
 function updateUI() {
@@ -779,38 +626,69 @@ function updateUI() {
     elements.multiplierCount.textContent = gameState.clickMultiplier + 'x';
     elements.multiplierDisplay.textContent = 'x' + gameState.clickMultiplier;
     
-    // Actualizar niveles
-    if (elements.autoClickerLevel) {
-        elements.autoClickerLevel.textContent = `Nivel ${itemCounts.autoClicker}`;
-    }
-    if (elements.multiplierLevel) {
-        elements.multiplierLevel.textContent = `x${gameState.clickMultiplier}`;
-    }
-    
-    // Actualizar precios
-    elements.autoClickerPrice.textContent = shopPrices.autoClicker;
-    elements.clickMultiplierPrice.textContent = shopPrices.clickMultiplier;
-    elements.timeBoostPrice.textContent = shopPrices.timeBoost;
-    elements.capsulePrice.textContent = shopPrices.capsule;
-    elements.superCapsulePrice.textContent = shopPrices.superCapsule;
-    
-    updateProgressBar();
-    updateAchievementCounter();
+    // Actualizar precios con descuento de evento
+    const discount = getEventDiscount();
+    document.getElementById('autoClickerPrice').textContent = Math.floor(shopPrices.autoClicker * discount);
+    document.getElementById('clickMultiplierPrice').textContent = Math.floor(shopPrices.clickMultiplier * discount);
+    document.getElementById('timeBoostPrice').textContent = Math.floor(shopPrices.timeBoost * discount);
+    document.getElementById('capsulePrice').textContent = Math.floor(shopPrices.capsule * discount);
+    document.getElementById('superCapsulePrice').textContent = Math.floor(shopPrices.superCapsule * discount);
 }
 
 function formatNumber(num) {
-    if (num >= 1000000) {
-        return (num / 1000000).toFixed(1) + 'M';
-    }
-    if (num >= 1000) {
-        return (num / 1000).toFixed(1) + 'K';
-    }
+    if (num >= 1000000) return (num / 1000000).toFixed(1) + 'M';
+    if (num >= 1000) return (num / 1000).toFixed(1) + 'K';
     return num.toString();
 }
 
+function updateProgressBar() {
+    const nextMilestone = findNextMilestone();
+    if (nextMilestone) {
+        const progress = (gameState.totalClicks / nextMilestone) * 100;
+        elements.progressBar.style.width = Math.min(progress, 100) + '%';
+        elements.nextAchievementName.textContent = `${nextMilestone} clics - ${getAchievementName(nextMilestone)}`;
+    }
+}
+
+function findNextMilestone() {
+    const milestones = [1, 10, 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
+    return milestones.find(m => m > gameState.totalClicks);
+}
+
+function getAchievementName(clicks) {
+    const names = {
+        1: '¡Primer Paso!',
+        10: 'Aprendiz de Clics',
+        50: 'Dedo Ágil',
+        100: 'Centenario',
+        200: 'Doble Centuria',
+        300: 'Tricentenario',
+        400: 'Cuadrigentésimo',
+        500: 'Quinientos',
+        600: 'Sescentenario',
+        700: 'Septingentésimo',
+        800: 'Octingentésimo',
+        900: 'Noningentésimo',
+        1000: '¡LEYENDA!'
+    };
+    return names[clicks] || 'Logro';
+}
+
 // ============================================
-// NOTIFICACIONES
+// TIEMPO Y UTILIDADES
 // ============================================
+function updateTime() {
+    const now = new Date();
+    elements.currentTime.textContent = now.toLocaleTimeString();
+}
+
+function updatePlayTime() {
+    gameState.playTime++;
+    const hours = Math.floor(gameState.playTime / 3600);
+    const minutes = Math.floor((gameState.playTime % 3600) / 60);
+    elements.playTime.textContent = `${hours}h ${minutes}m`;
+}
+
 function showNotification(message, type = 'success') {
     const notification = document.createElement('div');
     notification.className = `notification ${type}`;
@@ -830,12 +708,13 @@ function saveGame() {
         gameState,
         shopPrices,
         itemCounts,
-        version: '3.0',
+        prestigeData,
+        dailyMissions,
+        version: '4.0',
         timestamp: new Date().toISOString()
     };
     
     localStorage.setItem('clickGameSave', JSON.stringify(saveData));
-    showNotification('💾 ¡Juego guardado!');
 }
 
 function loadGame() {
@@ -845,26 +724,23 @@ function loadGame() {
         try {
             const data = JSON.parse(savedData);
             gameState = data.gameState;
-            Object.assign(shopPrices, data.shopPrices);
+            shopPrices = data.shopPrices;
+            if (data.itemCounts) itemCounts = data.itemCounts;
+            if (data.prestigeData) prestigeData = data.prestigeData;
+            if (data.dailyMissions) dailyMissions = data.dailyMissions;
             
-            if (data.itemCounts) {
-                itemCounts = data.itemCounts;
-            }
-            
-            renderAchievements();
             updateUI();
+            updatePrestigeUI();
+            renderMissions();
             showNotification('📂 ¡Juego cargado!');
         } catch (error) {
             console.error('Error al cargar:', error);
-            resetGame();
         }
-    } else {
-        showNotification('🆕 ¡Nueva partida!');
     }
 }
 
 function resetGame() {
-    if (confirm('¿Seguro que quieres reiniciar el juego? Todo tu progreso se perderá.')) {
+    if (confirm('¿Seguro que quieres reiniciar? Todo tu progreso se perderá.')) {
         gameState = {
             clickCount: 0,
             totalClicks: 0,
@@ -873,8 +749,7 @@ function resetGame() {
             cps: 0,
             highScore: 0,
             totalPurchases: 0,
-            playTime: 0,
-            unlockedAchievements: []
+            playTime: 0
         };
         
         shopPrices = {
@@ -885,46 +760,17 @@ function resetGame() {
             superCapsule: 1000
         };
         
-        itemCounts = {
-            autoClicker: 0,
-            multiplier: 1
-        };
+        itemCounts = { autoClicker: 0, multiplier: 1 };
+        prestigeData = { level: 0, points: 0, bonus: 1 };
         
-        clickHistory = [];
-        boostActive = false;
-        
-        renderAchievements();
         updateUI();
+        updatePrestigeUI();
         showNotification('🔄 Juego reiniciado');
-        
-        localStorage.removeItem('clickGameSave');
+        saveGame();
     }
 }
 
-// ============================================
-// FUNCIONES DE INTERFAZ
-// ============================================
-function toggleAchievements() {
-    const grid = document.getElementById('achievementsGrid');
-    const toggleIcon = document.querySelector('.achievements-section .toggle-icon');
-    
-    if (grid && toggleIcon) {
-        grid.classList.toggle('show');
-        toggleIcon.classList.toggle('rotated');
-    }
-}
-
-function toggleShop() {
-    const items = document.getElementById('shopItems');
-    const toggleIcon = document.querySelector('.shop-section .toggle-icon');
-    
-    if (items && toggleIcon) {
-        items.classList.toggle('show');
-        toggleIcon.classList.toggle('rotated');
-    }
-}
-
-// Añadir estilos de animación para confeti
+// Añadir estilos de confeti
 const style = document.createElement('style');
 style.textContent = `
     @keyframes fall {

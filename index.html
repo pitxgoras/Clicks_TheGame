@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CLICK! - El Juego Definitivo de Clics</title>
+    <title>CLICK! - El Juego Definitivo</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
@@ -13,7 +13,7 @@
     <div class="twinkling"></div>
     
     <div class="container">
-        <!-- Header con tiempo y estadísticas principales -->
+        <!-- Header -->
         <div class="header">
             <div class="time-box">
                 <span class="time-icon">⏰</span>
@@ -35,7 +35,6 @@
         <!-- Estado del juego -->
         <div class="game-status-container">
             <div class="game-status neon-text" id="gameStatus">CLICK!</div>
-            <div class="status-effect"></div>
         </div>
 
         <!-- Área principal de clics -->
@@ -53,7 +52,6 @@
                 </div>
             </div>
             
-            <!-- Barra de progreso -->
             <div class="progress-container">
                 <div class="progress-label">
                     <span>Próximo logro:</span>
@@ -65,39 +63,97 @@
             </div>
         </div>
 
-        <!-- Panel de logros (colapsable) -->
-        <div class="achievements-section">
-            <div class="section-header" onclick="toggleAchievements()">
-                <div class="header-left">
-                    <span class="header-icon">🏆</span>
-                    <span class="header-title">LOGROS</span>
-                </div>
-                <div class="header-right">
-                    <span class="achievement-counter" id="achievementCounter">0/43</span>
-                    <span class="toggle-icon">▼</span>
+        <!-- Panel de prestigio -->
+        <div class="prestige-panel" id="prestigePanel">
+            <div class="prestige-info">
+                <span>🌟 Prestigio: <span id="prestigeLevel">0</span></span>
+                <span>💎 Puntos: <span id="prestigePoints">0</span></span>
+                <span>✨ Bonus: <span id="prestigeBonus">x1.0</span></span>
+            </div>
+            <button class="prestige-btn" id="prestigeBtn" onclick="window.prestige?.()">🌟 PRESTIGIAR (10,000 clics)</button>
+        </div>
+
+        <!-- COLUMNAS: MINIJUEGOS (IZQUIERDA) + MISIONES (DERECHA) -->
+        <div class="two-columns">
+            <!-- COLUMNA IZQUIERDA: MINIJUEGOS -->
+            <div class="column left-column">
+                <div class="game-section minigame-section">
+                    <div class="section-header" onclick="window.toggleMinigames?.()">
+                        <div class="header-left">
+                            <span class="header-icon">🎰</span>
+                            <span class="header-title">MINIJUEGOS</span>
+                        </div>
+                        <div class="header-right">
+                            <span class="toggle-icon" id="minigameToggle">▼</span>
+                        </div>
+                    </div>
+                    <div class="game-grid minigames-grid" id="minigamesGrid">
+                        <div class="game-card" onclick="window.playRoulette?.()">
+                            <div class="game-card-icon">🎡</div>
+                            <div class="game-card-name">Ruleta</div>
+                            <div class="game-card-cost">100 clics</div>
+                            <div class="game-card-desc">x35 al 0</div>
+                        </div>
+                        <div class="game-card" onclick="window.playSlotMachine?.()">
+                            <div class="game-card-icon">🎰</div>
+                            <div class="game-card-name">Tragamonedas</div>
+                            <div class="game-card-cost">50 clics</div>
+                            <div class="game-card-desc">Jackpot 3 sietes</div>
+                        </div>
+                        <div class="game-card" onclick="window.playNumberGuess?.()">
+                            <div class="game-card-icon">🔢</div>
+                            <div class="game-card-name">Adivina</div>
+                            <div class="game-card-cost">25 clics</div>
+                            <div class="game-card-desc">1-10, x5 si aciertas</div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            
-            <div class="achievements-grid" id="achievementsGrid">
-                <!-- Los logros se generarán dinámicamente con JS -->
+
+            <!-- COLUMNA DERECHA: MISIONES DIARIAS -->
+            <div class="column right-column">
+                <div class="game-section missions-section">
+                    <div class="section-header" onclick="window.toggleMissions?.()">
+                        <div class="header-left">
+                            <span class="header-icon">📋</span>
+                            <span class="header-title">MISIONES DIARIAS</span>
+                        </div>
+                        <div class="header-right">
+                            <span class="toggle-icon" id="missionToggle">▼</span>
+                        </div>
+                    </div>
+                    <div class="missions-grid" id="missionsGrid">
+                        <!-- Las misiones se generan dinámicamente -->
+                        <div class="mission-card">
+                            <div class="mission-name">Cargando...</div>
+                            <div class="mission-progress">0/0</div>
+                            <div class="mission-reward">💰 0</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!-- Tienda de mejoras -->
-        <div class="shop-section">
-            <div class="section-header" onclick="toggleShop()">
+        <!-- Panel de eventos especiales -->
+        <div class="event-section" id="eventSection">
+            <div class="event-banner" id="eventBanner" style="display: none;">
+                <span id="eventText">✨ EVENTO ACTIVO ✨</span>
+            </div>
+        </div>
+
+        <!-- Sección de TIENDA -->
+        <div class="game-section shop-section">
+            <div class="section-header" onclick="window.toggleShop?.()">
                 <div class="header-left">
                     <span class="header-icon">🛒</span>
                     <span class="header-title">TIENDA</span>
                 </div>
                 <div class="header-right">
-                    <span class="toggle-icon">▼</span>
+                    <span class="toggle-icon" id="shopToggle">▼</span>
                 </div>
             </div>
-            
             <div class="shop-items" id="shopItems">
-                <!-- Auto Clicker -->
-                <div class="shop-item" onclick="purchaseItem('autoClicker')" id="autoClickerItem">
+                <div class="shop-item" onclick="window.purchaseItem?.('autoClicker')">
                     <div class="item-icon">🤖</div>
                     <div class="item-info">
                         <div class="item-name">Auto Clicker</div>
@@ -109,9 +165,7 @@
                         <span class="item-currency">💰</span>
                     </div>
                 </div>
-                
-                <!-- Multiplicador -->
-                <div class="shop-item" onclick="purchaseItem('clickMultiplier')" id="clickMultiplierItem">
+                <div class="shop-item" onclick="window.purchaseItem?.('clickMultiplier')">
                     <div class="item-icon">⚡</div>
                     <div class="item-info">
                         <div class="item-name">Multiplicador</div>
@@ -123,9 +177,7 @@
                         <span class="item-currency">💰</span>
                     </div>
                 </div>
-                
-                <!-- Time Boost -->
-                <div class="shop-item" onclick="purchaseItem('timeBoost')" id="timeBoostItem">
+                <div class="shop-item" onclick="window.purchaseItem?.('timeBoost')">
                     <div class="item-icon">⏱️</div>
                     <div class="item-info">
                         <div class="item-name">Time Boost</div>
@@ -136,9 +188,7 @@
                         <span class="item-currency">💰</span>
                     </div>
                 </div>
-                
-                <!-- Cápsula Normal -->
-                <div class="shop-item" onclick="purchaseItem('capsule')" id="capsuleItem">
+                <div class="shop-item" onclick="window.purchaseItem?.('capsule')">
                     <div class="item-icon">💊</div>
                     <div class="item-info">
                         <div class="item-name">Cápsula Misteriosa</div>
@@ -149,9 +199,7 @@
                         <span class="item-currency">💰</span>
                     </div>
                 </div>
-                
-                <!-- Súper Cápsula -->
-                <div class="shop-item special" onclick="purchaseItem('superCapsule')" id="superCapsuleItem">
+                <div class="shop-item special" onclick="window.purchaseItem?.('superCapsule')">
                     <div class="item-icon">🌟</div>
                     <div class="item-info">
                         <div class="item-name">Súper Cápsula</div>
@@ -197,37 +245,33 @@
                     </div>
                 </div>
             </div>
-
             <div class="control-buttons">
-                <button class="control-btn save" onclick="saveGame()">
-                    <span class="btn-icon">💾</span>
-                    <span>Guardar</span>
-                </button>
-                <button class="control-btn load" onclick="loadGame()">
-                    <span class="btn-icon">📂</span>
-                    <span>Cargar</span>
-                </button>
-                <button class="control-btn reset" onclick="resetGame()">
-                    <span class="btn-icon">🔄</span>
-                    <span>Reiniciar</span>
-                </button>
+                <button class="control-btn save" onclick="window.saveGame?.()"> Guardar</button>
+                <button class="control-btn load" onclick="window.loadGame?.()"> Cargar</button>
+                <button class="control-btn reset" onclick="window.resetGame?.()"> Reiniciar</button>
             </div>
         </div>
 
         <!-- Footer -->
         <div class="footer">
-            <span>🎮 CLICK! v3.0</span>
+            <span>CLICK! v2.7</span>
             <span class="separator">•</span>
-            <span>⏱️ Tiempo: <span id="playTime">0h 0m</span></span>
+            <span>⏱ Tiempo: <span id="playTime">0h 0m</span></span>
             <span class="separator">•</span>
-            <span>💫 ¡Sigue cliqueando!</span>
+            <span>💫 Dev. Pitxgoras</span>
         </div>
     </div>
 
     <!-- Área de notificaciones -->
     <div class="notification-area" id="notificationArea"></div>
 
-    <!-- Scripts -->
-    <script src="script.js"></script>
+    <!-- SCRIPTS SEPARADOS -->
+    <script src="js/achievements.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/prestige.js"></script>
+    <script src="js/minigames.js"></script>
+    <script src="js/missions.js"></script>
+    <script src="js/events.js"></script>
+    <script src="js/shop.js"></script>
 </body>
 </html>

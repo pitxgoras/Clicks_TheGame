@@ -4,21 +4,12 @@
     --accent: #ffe66d;
     --dark: #1a1b2f;
     --darker: #0f1020;
-    --light: #f7fff7;
     --neon: #00fff9;
     --neon-glow: rgba(0, 255, 249, 0.3);
     --gold: #ffd700;
     --gold-glow: rgba(255, 215, 0, 0.3);
     --purple: #800080;
     --purple-glow: rgba(128, 0, 128, 0.3);
-    
-    /* Colores de rareza */
-    --common: #808080;
-    --uncommon: #00ff00;
-    --rare: #0000ff;
-    --epic: #800080;
-    --legendary: #ffd700;
-    --mythic: #ff00ff;
 }
 
 * {
@@ -36,7 +27,9 @@ body {
     color: white;
 }
 
-/* Fondo animado */
+/* ========================================
+   FONDO ANIMADO
+   ======================================== */
 .stars, .twinkling {
     position: fixed;
     top: 0;
@@ -64,11 +57,13 @@ body {
     50% { opacity: 1; }
 }
 
-/* Contenedor principal */
+/* ========================================
+   CONTENEDOR PRINCIPAL
+   ======================================== */
 .container {
     position: relative;
     z-index: 2;
-    max-width: 900px;
+    max-width: 1200px;
     margin: 20px auto;
     padding: 25px;
     background: rgba(10, 10, 20, 0.8);
@@ -78,7 +73,9 @@ body {
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 30px var(--neon-glow);
 }
 
-/* Header */
+/* ========================================
+   HEADER
+   ======================================== */
 .header {
     display: flex;
     justify-content: space-between;
@@ -127,11 +124,13 @@ body {
 }
 
 .stat-label {
-    color: var(--neon);
     font-size: 0.9rem;
+    color: var(--neon);
 }
 
-/* Estado del juego */
+/* ========================================
+   ESTADO DEL JUEGO
+   ======================================== */
 .game-status-container {
     text-align: center;
     margin-bottom: 30px;
@@ -146,11 +145,7 @@ body {
 
 .neon-text {
     color: white;
-    text-shadow: 
-        0 0 10px var(--neon),
-        0 0 20px var(--neon),
-        0 0 40px var(--neon),
-        0 0 80px var(--neon);
+    text-shadow: 0 0 10px var(--neon), 0 0 20px var(--neon), 0 0 40px var(--neon), 0 0 80px var(--neon);
 }
 
 @keyframes glow {
@@ -162,7 +157,9 @@ body {
     }
 }
 
-/* Área de clics */
+/* ========================================
+   ÁREA DE CLICS
+   ======================================== */
 .click-area {
     display: flex;
     flex-direction: column;
@@ -171,8 +168,8 @@ body {
 }
 
 .click-button {
-    width: 300px;
-    height: 300px;
+    width: 280px;
+    height: 280px;
     border-radius: 50%;
     background: radial-gradient(circle at 30% 30%, var(--primary), #c92a2a);
     display: flex;
@@ -181,18 +178,11 @@ body {
     cursor: pointer;
     position: relative;
     margin-bottom: 25px;
-    animation: pulse 2s infinite;
     transition: transform 0.1s;
 }
 
 .click-button:active {
     transform: scale(0.95);
-}
-
-@keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.7); }
-    70% { box-shadow: 0 0 0 30px rgba(255, 107, 107, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0); }
 }
 
 .button-inner {
@@ -201,15 +191,14 @@ body {
 }
 
 .button-text {
-    font-size: 4.5rem;
+    font-size: 3.5rem;
     font-weight: 700;
     color: white;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-    line-height: 1;
 }
 
 .button-subtext {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     color: var(--neon);
     text-shadow: 0 0 10px var(--neon);
 }
@@ -254,11 +243,12 @@ body {
     100% { transform: scale(1.5); opacity: 0; }
 }
 
-/* Barra de progreso */
+/* ========================================
+   BARRA DE PROGRESO
+   ======================================== */
 .progress-container {
     width: 100%;
     max-width: 500px;
-    margin-top: 20px;
 }
 
 .progress-label {
@@ -275,7 +265,6 @@ body {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
     overflow: hidden;
-    border: 1px solid var(--neon);
 }
 
 .progress-fill {
@@ -283,15 +272,83 @@ body {
     background: linear-gradient(90deg, var(--neon), var(--gold));
     width: 0%;
     transition: width 0.3s;
-    box-shadow: 0 0 10px var(--neon);
 }
 
-/* Sección de logros */
-.achievements-section {
+/* ========================================
+   PANEL DE PRESTIGIO
+   ======================================== */
+.prestige-panel {
+    background: rgba(128, 0, 128, 0.2);
+    border: 1px solid var(--purple);
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.prestige-info {
+    display: flex;
+    gap: 20px;
+    color: var(--gold);
+}
+
+.prestige-btn {
+    background: linear-gradient(135deg, #800080, #4a004a);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.prestige-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(128, 0, 128, 0.5);
+}
+
+/* ========================================
+   DISEÑO DE DOS COLUMNAS
+   ======================================== */
+.two-columns {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.column {
+    flex: 1;
+    min-width: 0;
+}
+
+.left-column, .right-column {
+    flex: 1;
+}
+
+.column .game-section {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.column .game-grid,
+.column .missions-grid {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+/* ========================================
+   SECCIONES DE JUEGO
+   ======================================== */
+.game-section {
     background: rgba(0, 0, 0, 0.3);
     border-radius: 20px;
     margin-bottom: 20px;
-    border: 1px solid var(--gold);
     overflow: hidden;
 }
 
@@ -300,14 +357,13 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 15px 20px;
-    background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 215, 0, 0.1));
+    background: linear-gradient(135deg, rgba(0, 255, 249, 0.2), rgba(0, 255, 249, 0.1));
     cursor: pointer;
     transition: all 0.3s;
-    border-bottom: 1px solid var(--gold);
 }
 
 .section-header:hover {
-    background: linear-gradient(135deg, rgba(255, 215, 0, 0.3), rgba(255, 215, 0, 0.2));
+    background: linear-gradient(135deg, rgba(0, 255, 249, 0.3), rgba(0, 255, 249, 0.2));
 }
 
 .header-left {
@@ -323,128 +379,148 @@ body {
 .header-title {
     font-size: 1.2rem;
     font-weight: 600;
-    color: var(--gold);
-}
-
-.header-right {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.achievement-counter {
-    background: rgba(255, 215, 0, 0.2);
-    padding: 5px 10px;
-    border-radius: 20px;
-    color: var(--gold);
-    font-weight: 600;
+    color: var(--neon);
 }
 
 .toggle-icon {
     font-size: 1.2rem;
     transition: transform 0.3s;
-    color: var(--gold);
+    color: var(--neon);
 }
 
 .toggle-icon.rotated {
     transform: rotate(180deg);
 }
 
-.achievements-grid {
+/* ========================================
+   MINIJUEGOS (GRID)
+   ======================================== */
+.game-grid {
     display: none;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
     padding: 20px;
-    max-height: 500px;
-    overflow-y: auto;
 }
 
-.achievements-grid.show {
+.game-grid.show {
     display: grid;
 }
 
-.achievement-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 12px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 12px;
-    border-left: 4px solid;
+.game-card {
+    background: rgba(255, 215, 0, 0.1);
+    border: 1px solid var(--gold);
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
     transition: all 0.3s;
 }
 
-.achievement-item:hover {
-    transform: translateX(5px);
-    background: rgba(255, 255, 255, 0.1);
+.game-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 215, 0, 0.2);
+    box-shadow: 0 5px 20px var(--gold-glow);
 }
 
-.achievement-item.unlocked {
-    opacity: 1;
-    background: rgba(255, 215, 0, 0.1);
+.game-card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
 }
 
-.achievement-item.locked {
-    opacity: 0.5;
-    filter: grayscale(0.7);
+.game-card-name {
+    font-weight: bold;
+    color: var(--gold);
+    font-size: 1rem;
 }
 
-.achievement-icon {
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    flex-shrink: 0;
-}
-
-.achievement-details {
-    flex: 1;
-}
-
-.achievement-name {
-    font-weight: 600;
+.game-card-cost {
+    font-size: 0.8rem;
     color: white;
+    margin-top: 5px;
+}
+
+.game-card-desc {
+    font-size: 0.7rem;
+    color: var(--neon);
+    margin-top: 5px;
+}
+
+/* ========================================
+   MISIONES DIARIAS
+   ======================================== */
+.missions-grid {
+    display: none;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 20px;
+}
+
+.missions-grid.show {
+    display: grid;
+}
+
+.mission-card {
+    background: rgba(78, 205, 196, 0.1);
+    border: 1px solid var(--secondary);
+    border-radius: 12px;
+    padding: 12px;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.mission-card:hover {
+    transform: translateX(5px);
+    background: rgba(78, 205, 196, 0.2);
+}
+
+.mission-card.completed {
+    border-color: var(--gold);
+    background: rgba(255, 215, 0, 0.15);
+}
+
+.mission-name {
+    font-weight: bold;
+    color: var(--secondary);
     font-size: 0.95rem;
 }
 
-.achievement-desc {
-    color: var(--neon);
-    font-size: 0.8rem;
+.mission-progress {
+    font-size: 0.9rem;
+    margin: 5px 0;
+    font-weight: 600;
+    color: white;
 }
 
-.achievement-reward {
+.mission-reward {
     color: var(--gold);
     font-size: 0.8rem;
-    font-weight: 600;
-    margin-top: 2px;
 }
 
-.achievement-requirement {
-    color: #666;
-    font-size: 0.8rem;
-}
-
-.achievement-secret {
-    text-align: center;
-    width: 100%;
-    color: var(--mythic);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-/* Tienda */
-.shop-section {
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 20px;
+/* ========================================
+   EVENTOS ESPECIALES
+   ======================================== */
+.event-section {
     margin-bottom: 20px;
-    border: 1px solid var(--neon);
-    overflow: hidden;
 }
 
+.event-banner {
+    background: linear-gradient(135deg, #ff6b6b, #ffd700);
+    padding: 15px;
+    text-align: center;
+    border-radius: 15px;
+    animation: pulse 1s infinite;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+/* ========================================
+   TIENDA
+   ======================================== */
 .shop-items {
     display: none;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -460,47 +536,22 @@ body {
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 15px;
+    padding: 12px;
     background: rgba(255, 255, 255, 0.05);
     border-radius: 12px;
     cursor: pointer;
     transition: all 0.3s;
     border: 1px solid transparent;
-    position: relative;
-    overflow: hidden;
-}
-
-.shop-item::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.05), transparent);
-    transform: rotate(45deg);
-    animation: shine 3s infinite;
-}
-
-@keyframes shine {
-    0% { transform: translateX(-100%) rotate(45deg); }
-    20% { transform: translateX(100%) rotate(45deg); }
-    100% { transform: translateX(100%) rotate(45deg); }
 }
 
 .shop-item:hover {
     border-color: var(--neon);
     transform: translateX(5px);
     background: rgba(78, 205, 196, 0.1);
-    box-shadow: 0 0 20px var(--neon-glow);
 }
 
 .shop-item.special {
     background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 215, 0, 0.2));
-}
-
-.shop-item.special:hover {
-    border-color: var(--gold);
 }
 
 .item-icon {
@@ -543,13 +594,15 @@ body {
     color: var(--gold);
 }
 
-/* Panel de controles */
+/* ========================================
+   CONTROLES Y ESTADÍSTICAS
+   ======================================== */
 .controls-panel {
     background: rgba(0, 0, 0, 0.3);
     border-radius: 20px;
     padding: 20px;
     border: 1px solid var(--neon);
-    margin-bottom: 20px;
+    margin-top: 10px;
 }
 
 .stats-grid {
@@ -563,10 +616,9 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 12px;
+    padding: 10px;
     background: rgba(0, 255, 249, 0.05);
     border-radius: 12px;
-    border: 1px solid var(--neon);
 }
 
 .stat-info {
@@ -575,12 +627,12 @@ body {
 }
 
 .stat-info .stat-label {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     color: var(--neon);
 }
 
 .stat-info .stat-value {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 600;
     color: white;
 }
@@ -592,18 +644,12 @@ body {
 }
 
 .control-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
     padding: 12px;
     border: none;
     border-radius: 12px;
-    font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s;
-    border: 1px solid transparent;
 }
 
 .control-btn.save {
@@ -622,15 +668,13 @@ body {
 }
 
 .control-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
-.control-btn:active {
-    transform: translateY(-1px);
-}
-
-/* Footer */
+/* ========================================
+   FOOTER
+   ======================================== */
 .footer {
     display: flex;
     justify-content: center;
@@ -638,18 +682,17 @@ body {
     gap: 15px;
     padding: 15px;
     color: rgba(255,255,255,0.6);
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+    margin-top: 20px;
 }
 
 .separator {
     color: var(--neon);
 }
 
-#playTime {
-    color: var(--neon);
-}
-
-/* Notificaciones */
+/* ========================================
+   NOTIFICACIONES
+   ======================================== */
 .notification-area {
     position: fixed;
     top: 20px;
@@ -660,12 +703,12 @@ body {
 .notification {
     background: rgba(0, 255, 249, 0.95);
     color: var(--dark);
-    padding: 15px 25px;
-    border-radius: 12px;
+    padding: 12px 20px;
+    border-radius: 10px;
     margin-bottom: 10px;
     font-weight: 600;
     animation: slideIn 0.3s ease-out, fadeOut 0.3s 2.7s;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     backdrop-filter: blur(5px);
 }
 
@@ -693,72 +736,13 @@ body {
     }
 }
 
-/* Popup de logro */
-.achievement-popup {
-    position: fixed;
-    top: 100px;
-    right: 20px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    background: rgba(0, 0, 0, 0.95);
-    border-left: 4px solid;
-    border-radius: 12px;
-    padding: 15px 20px;
-    animation: slideInRight 0.5s, fadeOut 0.5s 4.5s;
-    z-index: 10000;
-    max-width: 350px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-}
-
-@keyframes slideInRight {
-    from {
-        transform: translateX(100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-.popup-icon {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-}
-
-.popup-info {
-    flex: 1;
-}
-
-.popup-name {
-    font-weight: bold;
-    color: white;
-    font-size: 1.1rem;
-}
-
-.popup-desc {
-    color: var(--neon);
-    font-size: 0.9rem;
-}
-
-.popup-reward {
-    color: var(--gold);
-    font-weight: bold;
-    margin-top: 5px;
-}
-
-/* Efecto de clic */
+/* ========================================
+   EFECTO DE CLIC
+   ======================================== */
 .click-effect {
     position: fixed;
     color: var(--neon);
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: bold;
     text-shadow: 0 0 20px var(--neon);
     pointer-events: none;
@@ -777,9 +761,20 @@ body {
     }
 }
 
-/* Scrollbar personalizado */
+/* ========================================
+   EFECTO CONFETI
+   ======================================== */
+@keyframes fall {
+    to {
+        transform: translateY(100vh);
+    }
+}
+
+/* ========================================
+   SCROLLBAR PERSONALIZADO
+   ======================================== */
 ::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -796,11 +791,68 @@ body {
     background: var(--gold);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+.column .game-grid::-webkit-scrollbar,
+.column .missions-grid::-webkit-scrollbar {
+    width: 6px;
+}
+
+.column .game-grid::-webkit-scrollbar-track,
+.column .missions-grid::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.column .game-grid::-webkit-scrollbar-thumb,
+.column .missions-grid::-webkit-scrollbar-thumb {
+    background: var(--gold);
+    border-radius: 10px;
+}
+
+/* ========================================
+   POPUP DE LOGROS
+   ======================================== */
+.achievement-popup {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.95);
+    border-radius: 12px;
+    padding: 12px 18px;
+    z-index: 10000;
+    animation: slideInRight 0.5s, fadeOut 0.5s 4.5s;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px var(--gold);
+    pointer-events: none;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+@media (max-width: 900px) {
     .container {
         margin: 10px;
         padding: 15px;
+    }
+    
+    .two-columns {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 12px;
     }
     
     .header {
@@ -814,12 +866,25 @@ body {
     }
     
     .click-button {
-        width: 250px;
-        height: 250px;
+        width: 220px;
+        height: 220px;
     }
     
     .button-text {
-        font-size: 3.5rem;
+        font-size: 2.8rem;
+    }
+    
+    .game-status {
+        font-size: 2.5rem;
+    }
+    
+    .two-columns {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .column {
+        width: 100%;
     }
     
     .stats-grid {
@@ -830,26 +895,336 @@ body {
         grid-template-columns: 1fr;
     }
     
-    .achievements-grid {
-        grid-template-columns: 1fr;
+    .prestige-panel {
+        flex-direction: column;
+        text-align: center;
     }
     
-    .shop-items {
-        grid-template-columns: 1fr;
+    .prestige-info {
+        justify-content: center;
+    }
+    
+    .game-card-icon {
+        font-size: 2rem;
+    }
+    
+    .game-card-name {
+        font-size: 0.9rem;
     }
 }
 
 @media (max-width: 480px) {
     .click-button {
-        width: 200px;
-        height: 200px;
+        width: 180px;
+        height: 180px;
     }
     
     .button-text {
-        font-size: 2.8rem;
+        font-size: 2rem;
+    }
+    
+    .button-subtext {
+        font-size: 1rem;
     }
     
     .game-status {
-        font-size: 2.5rem;
+        font-size: 2rem;
+    }
+    
+    .stat-value {
+        font-size: 1rem;
+    }
+    
+    .section-header {
+        padding: 10px 15px;
+    }
+    
+    .header-title {
+        font-size: 1rem;
+    }
+    
+    .game-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ========================================
+   ESTILOS MEJORADOS PARA MISIONES DIARIAS
+   ======================================== */
+
+/* Header de información de misiones */
+.missions-header-info {
+    margin-bottom: 15px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.missions-stats {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: var(--neon);
+    margin-bottom: 8px;
+}
+
+.mission-streak-banner {
+    background: linear-gradient(135deg, #ff6b6b, #ffd700);
+    padding: 8px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: var(--dark);
+    animation: streakPulse 1s infinite;
+}
+
+@keyframes streakPulse {
+    0%, 100% { transform: scale(1); opacity: 0.9; }
+    50% { transform: scale(1.02); opacity: 1; }
+}
+
+/* Tarjeta de misión mejorada */
+.mission-card {
+    background: rgba(78, 205, 196, 0.1);
+    border: 1px solid var(--secondary);
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 10px;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.mission-card:hover {
+    transform: translateX(5px);
+    background: rgba(78, 205, 196, 0.2);
+    box-shadow: 0 2px 8px rgba(78, 205, 196, 0.3);
+}
+
+.mission-card.completed {
+    border-color: var(--gold);
+    background: rgba(255, 215, 0, 0.1);
+    opacity: 0.9;
+}
+
+/* Header de la misión */
+.mission-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.mission-name {
+    font-weight: bold;
+    color: var(--secondary);
+    font-size: 0.95rem;
+}
+
+.mission-difficulty {
+    font-size: 0.8rem;
+    cursor: help;
+}
+
+.mission-description {
+    font-size: 0.7rem;
+    color: #aaa;
+    margin-bottom: 8px;
+}
+
+.mission-progress {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: white;
+    margin: 8px 0;
+    text-align: center;
+}
+
+/* Barra de progreso mejorada */
+.progress-bar-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 8px 0;
+}
+
+.progress-bar {
+    flex: 1;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    transition: width 0.5s ease;
+    border-radius: 10px;
+}
+
+.progress-text {
+    font-size: 0.7rem;
+    color: var(--neon);
+    min-width: 35px;
+    text-align: right;
+}
+
+/* Footer de la misión */
+.mission-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mission-reward {
+    color: var(--gold);
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.mission-remaining {
+    color: #ff6b6b;
+    font-size: 0.7rem;
+}
+
+.mission-completed {
+    color: #00ff00;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+/* ========================================
+   ANIMACIONES PARA MISIONES
+   ======================================== */
+@keyframes missionComplete {
+    0% {
+        transform: scale(1);
+        background: rgba(255, 215, 0, 0.1);
+    }
+    50% {
+        transform: scale(1.02);
+        background: rgba(255, 215, 0, 0.3);
+        box-shadow: 0 0 15px var(--gold);
+    }
+    100% {
+        transform: scale(1);
+        background: rgba(255, 215, 0, 0.15);
+    }
+}
+
+.mission-card.completed {
+    animation: missionComplete 0.5s ease;
+}
+
+/* ========================================
+   EFECTO CONFETI PARA LOGROS
+   ======================================== */
+@keyframes fall {
+    0% {
+        transform: translateY(-10px) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* ========================================
+   NOTIFICACIONES MEJORADAS
+   ======================================== */
+.notification-area {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 350px;
+    pointer-events: none;
+}
+
+.notification {
+    background: rgba(0, 255, 249, 0.95);
+    color: var(--dark);
+    padding: 10px 16px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    animation: notificationSlide 0.3s ease;
+    pointer-events: none;
+}
+
+@keyframes notificationSlide {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.notification.error {
+    background: rgba(255, 107, 107, 0.95);
+    color: white;
+}
+
+.notification.info {
+    background: rgba(78, 205, 196, 0.95);
+    color: white;
+}
+
+/* ========================================
+   RESPONSIVE PARA MISIONES
+   ======================================== */
+@media (max-width: 768px) {
+    .missions-stats {
+        flex-direction: column;
+        gap: 5px;
+        text-align: center;
+    }
+    
+    .mission-footer {
+        flex-direction: column;
+        gap: 5px;
+        text-align: center;
+    }
+    
+    .mission-name {
+        font-size: 0.85rem;
+    }
+    
+    .notification-area {
+        max-width: 280px;
+        top: 10px;
+        right: 10px;
+    }
+    
+    .notification {
+        font-size: 0.75rem;
+        padding: 8px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .progress-bar-container {
+        flex-direction: column;
+        gap: 4px;
+    }
+    
+    .progress-text {
+        text-align: center;
+    }
+    
+    .mission-card {
+        padding: 10px;
     }
 }
